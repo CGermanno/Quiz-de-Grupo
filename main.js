@@ -179,9 +179,10 @@ function startGame() {
 function preloadFlags() {
   questions.forEach(question => {
     const img = new Image();
-    img.src = `https://flagcdn.com/${question.countryCode}.svg`;
+    // Caminho relativo local
+    img.src = `./assets/flags/${question.countryCode}.png`;
   });
-  console.log(`🚩 ${questions.length} bandeiras pré-carregadas!`);
+  console.log(`🚩 ${questions.length} bandeiras pré-carregadas localmente!`);
 }
 
 function loadQuestion() {
@@ -204,8 +205,11 @@ function loadQuestion() {
   questionCounter.textContent = `Pergunta ${currentQuestionIndex + 1}/${questions.length}`;
   
   // Atualizar BANDEIRA
-  const flagUrl = `https://flagcdn.com/w320/${question.countryCode}.png`;; //antes era (const flagUrl = `https://flagcdn.com/${question.countryCode}.svg`;), mas o discord não carrega direito.
-  console.log('URL da bandeira:', flagUrl);
+//
+// Ajuste o caminho conforme onde seu index.html está em relação à pasta assets
+const flagUrl = `./assets/flags/${question.countryCode}.png`;
+
+console.log('Caminho da bandeira:', flagUrl);
   flagDisplay.src = flagUrl;
   flagDisplay.alt = `Bandeira de ${question.answer}`;
   
