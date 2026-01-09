@@ -3,65 +3,76 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
-  <meta http-equiv="Content-Security-Policy" content="frame-ancestors 'self' https://discord.com *.discord.com">
-  
   <title>Iniciar Quiz</title>
-  
   <style>
     body {
       background-color: #313338;
       color: #fff;
-      font-family: 'gg sans', 'Helvetica Neue', Arial, sans-serif;
+      font-family: 'gg sans', sans-serif;
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
       height: 100vh;
       margin: 0;
-      text-align: center;
       user-select: none;
     }
-
-    .logo { 
-      font-size: 80px; 
-      margin-bottom: 24px;
-    }
-
-    h1 { margin: 0 0 16px 0; font-size: 24px; font-weight: 700; }
-    p { color: #b5bac1; max-width: 400px; margin-bottom: 32px; font-size: 16px; }
+    .logo { font-size: 80px; margin-bottom: 24px; }
+    h1 { margin: 0 0 10px 0; font-size: 24px; }
+    p { color: #b5bac1; margin-bottom: 32px; }
     
-    /* Estilo do Link Botão */
     .btn-jogar {
       background-color: #5865f2;
       color: white;
       padding: 16px 48px;
-      text-decoration: none; /* Remove o sublinhado de link */
       font-weight: bold;
       border-radius: 8px;
       font-size: 18px;
-      transition: background-color 0.2s;
-      display: inline-block;
       cursor: pointer;
+      border: none;
+      transition: background 0.2s;
     }
-
     .btn-jogar:hover { background-color: #4752c4; }
-    
-    .footer { margin-top: 32px; font-size: 12px; color: #949ba4; }
   </style>
 </head>
 <body>
 
   <div class="logo">🧠</div>
-
   <h1>Quiz de Bandeiras</h1>
-  <p>Este jogo roda no seu navegador externo.</p>
+  <p>Clique abaixo para abrir o jogo no navegador.</p>
 
-  <a href="https://quiz-de-grupo.vercel.app/jogo.html" target="_blank" class="btn-jogar">
+  <button id="btn-jogar" class="btn-jogar">
     JOGAR AGORA 🚀
-  </a>
+  </button>
 
-  <div class="footer">Se não abrir, verifique se o bloqueador de pop-ups está ativo.</div>
+  <script type="module">
+    // Importa o SDK sem precisar baixar nada (via CDN)
+    import { DiscordSDK } from "https://cdn.jsdelivr.net/npm/@discord/embedded-app-sdk@1.0.0/+esm";
 
+    const clientId = "1459018177030787123"; // Seu ID
+    const discordSdk = new DiscordSDK(clientId);
+
+    async function setup() {
+      // Avisa que o app está pronto
+      await discordSdk.ready();
+      console.log("Discord SDK Conectado!");
+    }
+
+    setup();
+
+    // Ação do Botão
+    document.getElementById('btn-jogar').addEventListener('click', async () => {
+      // Tenta abrir usando o comando oficial do Discord
+      try {
+        await discordSdk.commands.openExternalLink({
+          url: "https://quiz-de-grupo.vercel.app/jogo.html"
+        });
+      } catch (e) {
+        // Se der erro (ex: testando fora do Discord), usa o método normal
+        console.log("Tentando fallback...");
+        window.open("https://quiz-de-grupo.vercel.app/jogo.html", "_blank");
+      }
+    });
+  </script>
 </body> 
 </html>
