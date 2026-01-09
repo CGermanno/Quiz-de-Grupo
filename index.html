@@ -1,107 +1,54 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8" />
-  <meta http-equiv="Content-Security-Policy" 
-      content="frame-ancestors 'self' https://discord.com *.discord.com">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Quiz de Bandeiras — QI Coletivo</title>
-  <link rel="stylesheet" href="style.css" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="Content-Security-Policy" content="frame-ancestors 'self' https://discord.com *.discord.com">
+  <title>Iniciar Quiz</title>
+  <style>
+    /* CSS embutido apenas para essa tela de entrada */
+    body {
+      background-color: #313338; /* Cor de fundo do Discord */
+      color: #fff;
+      font-family: sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+      text-align: center;
+    }
+    .logo { font-size: 80px; margin-bottom: 20px; }
+    h1 { margin-bottom: 10px; }
+    p { color: #b5bac1; max-width: 400px; margin-bottom: 30px; }
+    
+    .btn-jogar {
+      background-color: #5865f2; /* Azul Discord */
+      color: white;
+      padding: 15px 40px;
+      text-decoration: none;
+      font-weight: bold;
+      border-radius: 5px;
+      font-size: 18px;
+      transition: transform 0.2s;
+    }
+    .btn-jogar:hover { background-color: #4752c4; transform: scale(1.05); }
+    .footer { margin-top: 30px; font-size: 12px; color: #777; }
+  </style>
 </head>
 <body>
-  <!-- TELA 1: NOME DOS PARTICIPANTES -->
-  <!-- Seu site NÃO pode bloquear iframe.
- Se usar headers, NÃO use: X-Frame-Options: DENY "<meta http-equiv= Adicionei para solucao de possiveis conflitos:"Content-Security-Policy"  content="frame-ancestors 'self' https://discord.com *.discord.com">""-->
 
-  <section id="start-screen" class="screen active">
-    <div class="screen-content">
-      <h1>🧠 Quiz de Bandeiras</h1>
-      <p class="subtitle">Descubra o QI coletivo do grupo</p>
-      
-      <div class="input-section">
-        <p>Adicione os participantes:</p>
-        <div class="input-group">
-          <input
-            type="text"
-            id="player-name-input"
-            placeholder="Digite o nome do participante"
-            autocomplete="off"
-          />
-          <button id="add-player-btn" class="btn-secondary">Adicionar</button>
-        </div>
-        
-        <div class="players-section">
-          <h3>Participantes:</h3>
-          <ul id="player-list"></ul>
-          <p id="no-players-msg" class="empty-message">Nenhum participante adicionado ainda</p>
-        </div>
-      </div>
-      
-      <button id="start-game-btn" class="btn-primary" disabled>Iniciar Quiz</button>
-    </div>
-  </section>
+  <div class="logo">🧠</div>
 
-  <!-- TELA 2: PERGUNTAS DO QUIZ -->
-  <section id="quiz-screen" class="screen">
-    <div class="quiz-container">
-      <div class="quiz-header">
-        <div class="progress-info">
-          <span id="question-counter">Pergunta 1/10</span>
-          <span id="qi-value">QI: 100</span>
-        </div>
-      </div>
-      
-      <div class="question-card">
-        <img id="flag-display" class="flag" src="https://flagcdn.com/br.svg" alt="Bandeira" />
-        <h2 id="question-text">Qual é o país?</h2>
-        
-        <div id="options" class="options-grid">
-          <button class="option-btn" data-option="0">Opção A</button>
-          <button class="option-btn" data-option="1">Opção B</button>
-          <button class="option-btn" data-option="2">Opção C</button>
-          <button class="option-btn" data-option="3">Opção D</button>
-        </div>
-        
-        <div class="timer-container">
-          <div class="timer-bar">
-            <div id="timer-progress" class="timer-progress"></div>
-          </div>
-          <div id="timer" class="timer-text">⏱️ 10s</div>
-        </div>
-      </div>
-      
-      <div class="players-sidebar">
-        <h3>Placar</h3>
-        <ul id="players-score-list"></ul>
-      </div>
-    </div>
-  </section>
+  <h1>Quiz de Bandeiras</h1>
+  <p>Este jogo requer um navegador externo para a melhor experiência. Clique abaixo para iniciar!</p>
 
-  <!-- TELA 3: RESULTADO FINAL -->
-  <section id="end-screen" class="screen">
-    <div class="screen-content">
-      <h1>Resultado Final</h1>
-      
-      <div class="qi-result">
-        <div class="qi-circle">
-          <span id="final-qi-value">100</span>
-          <span class="qi-label">QI Coletivo</span>
-        </div>
-        <p id="qi-classification" class="qi-classification">Classificação</p>
-      </div>
-      
-      <div class="ranking-section">
-        <h2>Ranking dos Participantes</h2>
-        <ul id="final-ranking"></ul>
-      </div>
-      
-      <div class="actions">
-        <button id="restart-btn" class="btn-primary">Jogar Novamente</button>
-        <button id="new-game-btn" class="btn-secondary">Novos Participantes</button>
-      </div>
-    </div>
-  </section>
+  <a href="jogo.html" target="_blank" class="btn-jogar">
+    JOGAR AGORA 🚀
+  </a>
 
-  <script src="main.js" type="module"></script>
+  <div class="footer">Você será redirecionado para o navegador.</div>
+
 </body>
 </html>
