@@ -9,9 +9,8 @@
   <title>Iniciar Quiz</title>
   
   <style>
-    /* Reset básico e centralização */
     body {
-      background-color: #313338; /* Cor de fundo oficial do Discord moderno */
+      background-color: #313338;
       color: #fff;
       font-family: 'gg sans', 'Helvetica Neue', Arial, sans-serif;
       display: flex;
@@ -21,63 +20,34 @@
       height: 100vh;
       margin: 0;
       text-align: center;
-      user-select: none; /* Evita seleção de texto feia */
+      user-select: none;
     }
 
-    /* Estilo do Logo/Emoji */
     .logo { 
       font-size: 80px; 
       margin-bottom: 24px;
-      filter: drop-shadow(0 4px 6px rgba(0,0,0,0.3));
     }
 
-    /* Tipografia */
-    h1 { 
-      margin: 0 0 16px 0; 
-      font-size: 24px;
-      font-weight: 700;
-    }
-
-    p { 
-      color: #b5bac1; 
-      max-width: 400px; 
-      margin-bottom: 32px; 
-      line-height: 1.5;
-      font-size: 16px;
-    }
+    h1 { margin: 0 0 16px 0; font-size: 24px; font-weight: 700; }
+    p { color: #b5bac1; max-width: 400px; margin-bottom: 32px; font-size: 16px; }
     
-    /* Botão de Jogar */
+    /* Estilo do Link Botão */
     .btn-jogar {
-      background-color: #5865f2; /* Blurple (Azul Discord) */
+      background-color: #5865f2;
       color: white;
       padding: 16px 48px;
-      text-decoration: none;
+      text-decoration: none; /* Remove o sublinhado de link */
       font-weight: bold;
       border-radius: 8px;
       font-size: 18px;
-      transition: all 0.2s ease-in-out;
-      border: none;
-      cursor: pointer;
+      transition: background-color 0.2s;
       display: inline-block;
-      box-shadow: 0 4px 15px rgba(88, 101, 242, 0.4);
+      cursor: pointer;
     }
 
-    .btn-jogar:hover { 
-      background-color: #4752c4; 
-      transform: translateY(-2px);
-      box-shadow: 0 6px 20px rgba(88, 101, 242, 0.6);
-    }
-
-    .btn-jogar:active {
-      transform: translateY(0);
-    }
-
-    /* Rodapé */
-    .footer { 
-      margin-top: 32px; 
-      font-size: 12px; 
-      color: #949ba4; 
-    }
+    .btn-jogar:hover { background-color: #4752c4; }
+    
+    .footer { margin-top: 32px; font-size: 12px; color: #949ba4; }
   </style>
 </head>
 <body>
@@ -85,33 +55,13 @@
   <div class="logo">🧠</div>
 
   <h1>Quiz de Bandeiras</h1>
-  <p>Este jogo requer um navegador externo para a melhor experiência. Clique abaixo para iniciar o desafio!</p>
+  <p>Este jogo roda no seu navegador externo.</p>
 
   <a href="https://quiz-de-grupo.vercel.app/jogo.html" target="_blank" class="btn-jogar">
     JOGAR AGORA 🚀
   </a>
 
-  <div class="footer">Você será redirecionado para o navegador.</div>
-
-  <script>
-    // Script para garantir a abertura da nova aba burlando bloqueios de popup do iframe
-    document.querySelector('.btn-jogar').addEventListener('click', (e) => {
-      e.preventDefault(); // Impede o comportamento padrão do link para o JS assumir
-      
-      const urlDestino = 'https://quiz-de-grupo.vercel.app/jogo.html';
-
-      // Tenta abrir usando a API window.open
-      const novaAba = window.open(urlDestino, '_blank');
-
-      // Fallback: Se o bloqueador de popup impedir, tenta redirecionar via location ou criar clique forçado
-      if (!novaAba || novaAba.closed || typeof novaAba.closed == 'undefined') {
-          console.log("Popup bloqueado, tentando método alternativo...");
-          // Cria um elemento temporário e clica nele programaticamente
-          // Isso as vezes engana o bloqueador melhor que window.open direto
-          location.assign(urlDestino); 
-      }
-    });
-  </script>
+  <div class="footer">Se não abrir, verifique se o bloqueador de pop-ups está ativo.</div>
 
 </body> 
 </html>
