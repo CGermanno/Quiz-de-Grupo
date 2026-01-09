@@ -44,11 +44,20 @@
   <h1>Quiz de Bandeiras</h1>
   <p>Este jogo requer um navegador externo para a melhor experiência. Clique abaixo para iniciar!</p>
 
-  <a href="jogo.html" target="_blank" class="btn-jogar">
+<a href="https://quiz-de-grupo.vercel.app/jogo.html" target="_blank" class="btn-jogar">
     JOGAR AGORA 🚀
   </a>
 
   <div class="footer">Você será redirecionado para o navegador.</div>
 
-</body>
+  <script>
+    document.querySelector('.btn-jogar').addEventListener('click', (e) => {
+      e.preventDefault(); // Impede o clique normal para garantir que o script rode
+      
+      // Abre o arquivo do jogo em nova aba
+      window.open('https://quiz-de-grupo.vercel.app/jogo.html', '_blank');
+    });
+  </script>
+
+</body> 
 </html>
