@@ -2,12 +2,18 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8" />
+  <meta http-equiv="Content-Security-Policy" 
+      content="frame-ancestors 'self' https://discord.com *.discord.com">
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Quiz de Bandeiras — QI Coletivo</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
   <!-- TELA 1: NOME DOS PARTICIPANTES -->
+  <!-- Seu site NÃO pode bloquear iframe.
+ Se usar headers, NÃO use: X-Frame-Options: DENY "<meta http-equiv=
+ Adicionei para solucao de possiveis conflitos:"Content-Security-Policy"  content="frame-ancestors 'self' https://discord.com *.discord.com">""-->
+
   <section id="start-screen" class="screen active">
     <div class="screen-content">
       <h1>🧠 Quiz de Bandeiras</h1>
