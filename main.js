@@ -204,7 +204,7 @@ function loadQuestion() {
   questionCounter.textContent = `Pergunta ${currentQuestionIndex + 1}/${questions.length}`;
   
   // Atualizar BANDEIRA
-  const flagUrl = `https://flagcdn.com/${question.countryCode}.svg`;
+  const flagUrl = `https://flagcdn.com/w320/${question.countryCode}.png`;; //antes era (const flagUrl = `https://flagcdn.com/${question.countryCode}.svg`;), mas o discord não carrega direito.
   console.log('URL da bandeira:', flagUrl);
   flagDisplay.src = flagUrl;
   flagDisplay.alt = `Bandeira de ${question.answer}`;
