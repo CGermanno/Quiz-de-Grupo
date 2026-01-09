@@ -418,7 +418,3 @@ newGameBtn.addEventListener('click', () => {
 
 // ===== INICIALIZAÇÃO =====
 updatePlayersList();
-
-// Teste rápido: abra o console do navegador e digite:
-// 1. console.log(quizData) - deve mostrar o array de perguntas
-// 2. console.log(players) - deve mostrar array de jogadores
