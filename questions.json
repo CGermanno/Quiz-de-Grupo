@@ -1,0 +1,142 @@
+[
+  {
+    "id": 1,
+    "countryCode": "br",
+    "options": ["Brasil", "Portugal", "México", "Colômbia"],
+    "answer": "Brasil",
+    "difficulty": "easy"
+  },
+  {
+    "id": 2,
+    "countryCode": "jp",
+    "options": ["China", "Coreia do Sul", "Japão", "Vietnã"],
+    "answer": "Japão",
+    "difficulty": "easy"
+  },
+  {
+    "id": 3,
+    "countryCode": "ca",
+    "options": ["Estados Unidos", "Austrália", "Canadá", "Reino Unido"],
+    "answer": "Canadá",
+    "difficulty": "easy"
+  },
+  {
+    "id": 4,
+    "countryCode": "ar",
+    "options": ["Uruguai", "Chile", "Argentina", "Paraguai"],
+    "answer": "Argentina",
+    "difficulty": "easy"
+  },
+  {
+    "id": 5,
+    "countryCode": "de",
+    "options": ["Áustria", "Alemanha", "Bélgica", "Holanda"],
+    "answer": "Alemanha",
+    "difficulty": "medium"
+  },
+  {
+    "id": 6,
+    "countryCode": "ch",
+    "options": ["Suécia", "Dinamarca", "Suíça", "Noruega"],
+    "answer": "Suíça",
+    "difficulty": "medium"
+  },
+  {
+    "id": 7,
+    "countryCode": "pt",
+    "options": ["Espanha", "Itália", "Portugal", "Romênia"],
+    "answer": "Portugal",
+    "difficulty": "easy"
+  },
+  {
+    "id": 8,
+    "countryCode": "ma",
+    "options": ["Tunísia", "Marrocos", "Argélia", "Egito"],
+    "answer": "Marrocos",
+    "difficulty": "medium"
+  },
+  {
+    "id": 9,
+    "countryCode": "nz",
+    "options": ["Austrália", "Nova Zelândia", "Fiji", "Ilhas Salomão"],
+    "answer": "Nova Zelândia",
+    "difficulty": "medium"
+  },
+  {
+    "id": 10,
+    "countryCode": "lv",
+    "options": ["Lituânia", "Letônia", "Estônia", "Eslovênia"],
+    "answer": "Letônia",
+    "difficulty": "hard"
+  },
+  {
+    "id": 11,
+    "countryCode": "us",
+    "options": ["Estados Unidos", "Canadá", "Reino Unido", "Austrália"],
+    "answer": "Estados Unidos",
+    "difficulty": "easy"
+  },
+  {
+    "id": 12,
+    "countryCode": "fr",
+    "options": ["França", "Itália", "Bélgica", "Holanda"],
+    "answer": "França",
+    "difficulty": "easy"
+  },
+  {
+    "id": 13,
+    "countryCode": "es",
+    "options": ["Espanha", "Portugal", "México", "Argentina"],
+    "answer": "Espanha",
+    "difficulty": "easy"
+  },
+  {
+    "id": 14,
+    "countryCode": "it",
+    "options": ["Itália", "França", "Grécia", "Croácia"],
+    "answer": "Itália",
+    "difficulty": "easy"
+  },
+  {
+    "id": 15,
+    "countryCode": "gb",
+    "options": ["Reino Unido", "Estados Unidos", "Austrália", "Canadá"],
+    "answer": "Reino Unido",
+    "difficulty": "medium"
+  },
+  {
+    "id": 16,
+    "countryCode": "au",
+    "options": ["Austrália", "Nova Zelândia", "África do Sul", "Canadá"],
+    "answer": "Austrália",
+    "difficulty": "medium"
+  },
+  {
+    "id": 17,
+    "countryCode": "cn",
+    "options": ["China", "Japão", "Coreia do Sul", "Vietnã"],
+    "answer": "China",
+    "difficulty": "easy"
+  },
+  {
+    "id": 18,
+    "countryCode": "ru",
+    "options": ["Rússia", "Ucrânia", "Bielorrússia", "Polônia"],
+    "answer": "Rússia",
+    "difficulty": "medium"
+  },
+  {
+    "id": 19,
+    "countryCode": "in",
+    "options": ["Índia", "Paquistão", "Bangladesh", "Sri Lanka"],
+    "answer": "Índia",
+    "difficulty": "medium"
+  },
+  {
+    "id": 20,
+    "countryCode": "za",
+    "options": ["África do Sul", "Nigéria", "Quênia", "Egito"],
+    "answer": "África do Sul",
+    "difficulty": "hard"
+  }
+]
