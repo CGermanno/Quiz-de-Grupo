@@ -1,102 +1,78 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Quiz de Bandeiras — QI Coletivo</title>
-  <link rel="stylesheet" href="style.css" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Iniciar Quiz</title>
+  <style>
+    body {
+      background-color: #313338;
+      color: #fff;
+      font-family: 'gg sans', sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+      user-select: none;
+    }
+    .logo { font-size: 80px; margin-bottom: 24px; }
+    h1 { margin: 0 0 10px 0; font-size: 24px; }
+    p { color: #b5bac1; margin-bottom: 32px; }
+    
+    .btn-jogar {
+      background-color: #5865f2;
+      color: white;
+      padding: 16px 48px;
+      font-weight: bold;
+      border-radius: 8px;
+      font-size: 18px;
+      cursor: pointer;
+      border: none;
+      transition: background 0.2s;
+    }
+    .btn-jogar:hover { background-color: #4752c4; }
+  </style>
 </head>
 <body>
-  <!-- TELA 1: NOME DOS PARTICIPANTES -->
-  <section id="start-screen" class="screen active">
-    <div class="screen-content">
-      <h1>🧠 Quiz de Bandeiras</h1>
-      <p class="subtitle">Descubra o QI coletivo do grupo</p>
-      
-      <div class="input-section">
-        <p>Adicione os participantes:</p>
-        <div class="input-group">
-          <input
-            type="text"
-            id="player-name-input"
-            placeholder="Digite o nome do participante"
-            autocomplete="off"
-          />
-          <button id="add-player-btn" class="btn-secondary">Adicionar</button>
-        </div>
-        
-        <div class="players-section">
-          <h3>Participantes:</h3>
-          <ul id="player-list"></ul>
-          <p id="no-players-msg" class="empty-message">Nenhum participante adicionado ainda</p>
-        </div>
-      </div>
-      
-      <button id="start-game-btn" class="btn-primary" disabled>Iniciar Quiz</button>
-    </div>
-  </section>
 
-  <!-- TELA 2: PERGUNTAS DO QUIZ -->
-  <section id="quiz-screen" class="screen">
-    <div class="quiz-container">
-      <div class="quiz-header">
-        <div class="progress-info">
-          <span id="question-counter">Pergunta 1/10</span>
-          <span id="qi-value">QI: 100</span>
-        </div>
-      </div>
-      
-      <div class="question-card">
-        <img id="flag-display" class="flag" src="https://flagcdn.com/br.svg" alt="Bandeira" />
-        <h2 id="question-text">Qual é o país?</h2>
-        
-        <div id="options" class="options-grid">
-          <button class="option-btn" data-option="0">Opção A</button>
-          <button class="option-btn" data-option="1">Opção B</button>
-          <button class="option-btn" data-option="2">Opção C</button>
-          <button class="option-btn" data-option="3">Opção D</button>
-        </div>
-        
-        <div class="timer-container">
-          <div class="timer-bar">
-            <div id="timer-progress" class="timer-progress"></div>
-          </div>
-          <div id="timer" class="timer-text">⏱️ 10s</div>
-        </div>
-      </div>
-      
-      <div class="players-sidebar">
-        <h3>Placar</h3>
-        <ul id="players-score-list"></ul>
-      </div>
-    </div>
-  </section>
+  <div class="logo">🧠</div>
+  <h1>Quiz de Bandeiras</h1>
+  <p>Clique abaixo para abrir o jogo no navegador.</p>
 
-  <!-- TELA 3: RESULTADO FINAL -->
-  <section id="end-screen" class="screen">
-    <div class="screen-content">
-      <h1>Resultado Final</h1>
-      
-      <div class="qi-result">
-        <div class="qi-circle">
-          <span id="final-qi-value">100</span>
-          <span class="qi-label">QI Coletivo</span>
-        </div>
-        <p id="qi-classification" class="qi-classification">Classificação</p>
-      </div>
-      
-      <div class="ranking-section">
-        <h2>Ranking dos Participantes</h2>
-        <ul id="final-ranking"></ul>
-      </div>
-      
-      <div class="actions">
-        <button id="restart-btn" class="btn-primary">Jogar Novamente</button>
-        <button id="new-game-btn" class="btn-secondary">Novos Participantes</button>
-      </div>
-    </div>
-  </section>
+  <button id="btn-jogar" class="btn-jogar">
+    JOGAR AGORA 🚀
+  </button>
 
-  <script src="main.js" type="module"></script>
-</body>
+  <script type="module">
+    // Importa o SDK sem precisar baixar nada (via CDN)
+    import { DiscordSDK } from "https://cdn.jsdelivr.net/npm/@discord/embedded-app-sdk@1.0.0/+esm";
+
+    const clientId = "1459018177030787123"; // Seu ID
+    const discordSdk = new DiscordSDK(clientId);
+
+    async function setup() {
+      // Avisa que o app está pronto
+      await discordSdk.ready();
+      console.log("Discord SDK Conectado!");
+    }
+
+    setup();
+
+    // Ação do Botão
+    document.getElementById('btn-jogar').addEventListener('click', async () => {
+      // Tenta abrir usando o comando oficial do Discord
+      try {
+        await discordSdk.commands.openExternalLink({
+          url: "https://quiz-de-grupo.vercel.app/jogo.html"
+        });
+      } catch (e) {
+        // Se der erro (ex: testando fora do Discord), usa o método normal
+        console.log("Tentando fallback...");
+        window.open("https://quiz-de-grupo.vercel.app/jogo.html", "_blank");
+      }
+    });
+  </script>
+</body> 
 </html>
